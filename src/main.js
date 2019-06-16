@@ -4,6 +4,8 @@ import VueRouter from "vue-router";
 import BootstrapVue from "bootstrap-vue";
 import PortalVue from "portal-vue";
 
+import store from "./store/store.js";
+
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -23,5 +25,6 @@ const router = new VueRouter({
 
 new Vue({
   router: router,
-  render: h => h(App)
+  render: h => h(App),
+  store: store
 }).$mount("#app");

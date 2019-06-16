@@ -12,15 +12,10 @@
 import StocksStock from "./Stock.vue";
 
 export default {
-  data: function() {
-    return {
-      stocks: [
-        { id: 0, name: "BMW", price: 200 },
-        { id: 1, name: "APPL", price: 300 },
-        { id: 2, name: "ALPH", price: 299 },
-        { id: 3, name: "CCMC", price: 100 }
-      ]
-    };
+  computed: {
+    stocks: function() {
+      return this.$store.getters.getStocks;
+    }
   },
   components: {
     AppStocksStock: StocksStock
