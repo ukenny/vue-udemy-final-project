@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <div class="row">
-      <div class="col-xs-12">
+    <div class="containor-fluid">
+      <div class="row">
         <router-view></router-view>
       </div>
     </div>
@@ -26,6 +26,12 @@ export default {
   color: aliceblue;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 3em;
+  padding: 8%;
+  padding-top: 0em;
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
 </style>

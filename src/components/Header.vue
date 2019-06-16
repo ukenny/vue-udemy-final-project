@@ -4,18 +4,42 @@
       <div class="navbar-header">
         <router-link to="/" class="navbar-brand">Stock Trader</router-link>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <router-link to="/" activeClass="active" exact tag="li" class="nav-item">
+          <router-link
+            to="/"
+            activeClass="active"
+            exact
+            tag="li"
+            class="nav-item"
+          >
             <a class="nav-link">Home</a>
           </router-link>
-          <router-link to="/portfolio" activeClass="active" tag="li" class="nav-item">
+          <router-link
+            to="/portfolio"
+            activeClass="active"
+            tag="li"
+            class="nav-item"
+          >
             <a class="nav-link">Portfolio</a>
           </router-link>
-          <router-link to="/stocks" activeClass="active" tag="li" class="nav-item">
+          <router-link
+            to="/stocks"
+            activeClass="active"
+            tag="li"
+            class="nav-item"
+          >
             <a class="nav-link">Stocks</a>
           </router-link>
         </ul>
@@ -36,8 +60,12 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu bg-dark">
-              <li class="nav-item"><a href="#" class="nav-link">Save Data</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Load Data</a></li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Save Data</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Load Data</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -51,7 +79,9 @@ export default {};
 </script>
 
 <style scoped>
-a:active, a:hover, a:focus {
+a:active,
+a:hover,
+a:focus {
   outline: none !important;
   box-shadow: none;
 }
@@ -60,5 +90,8 @@ a:active, a:hover, a:focus {
 }
 .bg-navigation {
   background-color: darkblue;
+}
+.navbar {
+  padding-bottom: 5%;
 }
 </style>
