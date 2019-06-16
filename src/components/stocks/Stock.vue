@@ -56,7 +56,7 @@ export default {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        quantityToBuy: this.quantity
+        quantity: this.quantity
       };
       console.log(order);
       this.quantity = 0;
