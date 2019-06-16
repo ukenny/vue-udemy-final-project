@@ -1,5 +1,5 @@
 <template>
-  <div class="col-xs-6">
+  <div>
     <h1>Home</h1>
   </div>
 </template>
