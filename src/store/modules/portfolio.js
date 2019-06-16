@@ -4,19 +4,23 @@ const state = {
 };
 const mutations = {
   BUY_STOCK: function(state, { stockId, quantity, stockPrice }) {
-    const stockRecord = state.stocks.find(element => element.id == stockId);
+    const stockRecord = state.portfolioStocks.find(
+      element => element.stockId == stockId
+    );
     if (stockRecord) {
       stockRecord.quantity += quantity;
     } else {
-      state.state.push({
-        id: stockId,
+      state.portfolioStocks.push({
+        stockId: stockId,
         quantity: quantity
       });
     }
     state.funds -= stockPrice * quantity;
   },
   SELL_STOCK: function(state, { stockId, quantity /*to sell*/, stockPrice }) {
-    const stockRecord = state.stocks.find(element => element.id == stockId);
+    const stockRecord = state.store.stocks.find(
+      element => element.id == stockId
+    );
     if (stockRecord.quantity > quantity) {
       stockRecord.quantity -= quantity;
     } else if (stockRecord.quantity == quantity) {
@@ -31,16 +35,16 @@ const actions = {
   }
 };
 const getters = {
-  getStockPortfolia: function(state, getters) {
+  getStockPortfolio: function(state, getters) {
     return state.portfolioStocks.map(stock => {
-      const stockRecord = getters.stocks.find(
-        element => element.stockId == stock.id
+      const stockRecord = getters.getStocks.find(
+        element => element.id == stock.stockId
       );
       return {
-        id: stock.id,
+        id: stock.stockId,
         quantity: stock.quantity,
         name: stockRecord.name,
-        price: stockRecord.stockPrice
+        price: stockRecord.price
       };
     });
   },
