@@ -17,16 +17,17 @@ const mutations = {
     }
     state.funds -= stockPrice * quantity;
   },
-  SELL_STOCK: function(state, { stockId, quantity /*to sell*/, stockPrice }) {
-    const stockRecord = state.store.stocks.find(
-      element => element.id == stockId
-    );
+  SELL_STOCK: function(state, { id, quantity /*to sell*/, price }) {
+    const stockRecord = state.portfolioStocks.find(element => element.id == id);
     if (stockRecord.quantity > quantity) {
       stockRecord.quantity -= quantity;
     } else if (stockRecord.quantity == quantity) {
-      state.stocks.splice(state.status.indexOf(stockRecord), 1);
+      state.portfolioStocks.splice(
+        state.portfolioStocks.indexOf(stockRecord),
+        1
+      );
     }
-    state.funds += stockPrice * quantity;
+    state.funds += price * quantity;
   }
 };
 const actions = {

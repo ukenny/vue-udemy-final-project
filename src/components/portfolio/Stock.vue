@@ -1,20 +1,20 @@
 <template>
-  <div class="card text-center bg-transparent mt-2 border-white">
-    <h2 class="card-header bg-transparent border-white">{{ stock.name }}</h2>
-    <div class="card-body text-light">
+  <div class="card text-center mt-2 border-dark">
+    <h2 class="card-header bg-dark border-dark">{{ stock.name }}</h2>
+    <div class="card-body text-light bg-dark">
       <h4 class="card-title">
         (Price is ${{ stock.price }} | Quantity is: {{ stock.quantity }})
       </h4>
       <div class="form-inline">
         <div clsss="card-subtitle">
           <div class="form-row">
-            <label for="numberToBuy" class="control-label col-sm-3">Buy</label>
+            <label for="numberToSell" class="control-label col-sm-3">Sell</label>
             <div class="input-group col-sm-7">
               <div class="input-group-prepend">
                 <span class="input-group-text">$</span>
               </div>
               <input
-                id="numberToBuy"
+                id="numberToSell"
                 min="0"
                 step="1"
                 type="number"
@@ -56,14 +56,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["sellStock"]),
+    ...mapActions({
+      placeSellOrder: "sellStock"
+    }),
     sellStock: function() {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        quantity: this.stock.quantity
+        quantity: this.quantity
       };
-      this.sellStock(order);
+      this.placeSellOrder(order);
+      console.log(order);
+      this.quantity = 0;
     }
   }
 };
@@ -73,7 +77,7 @@ export default {
 .btn-outline-light {
   box-shadow: none;
 }
-#numberToBuy {
+#numberToSell {
   text-align: justify;
 }
 input[type="number"],
