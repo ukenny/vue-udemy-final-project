@@ -1,3 +1,5 @@
+import { stat } from "fs";
+
 const state = {
   funds: 1000,
   portfolioStocks: []
@@ -17,8 +19,10 @@ const mutations = {
     }
     state.funds -= stockPrice * quantity;
   },
-  SELL_STOCK: function(state, { id, quantity /*to sell*/, price }) {
-    const stockRecord = state.portfolioStocks.find(element => element.id == id);
+  SELL_STOCK: function(state, { stockId, stockPrice, quantity }) {
+    const stockRecord = state.portfolioStocks.find(
+      element => element.stockId == stockId
+    );
     if (stockRecord.quantity > quantity) {
       stockRecord.quantity -= quantity;
     } else if (stockRecord.quantity == quantity) {
@@ -27,7 +31,7 @@ const mutations = {
         1
       );
     }
-    state.funds += price * quantity;
+    state.funds += stockPrice * quantity;
   }
 };
 const actions = {

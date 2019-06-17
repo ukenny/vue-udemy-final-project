@@ -9,7 +9,7 @@
             <label for="numberToBuy" class="control-label col-sm-3">Buy</label>
             <div class="input-group col-sm-7">
               <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
+                <span class="input-group-text">#</span>
               </div>
               <input
                 id="numberToBuy"
