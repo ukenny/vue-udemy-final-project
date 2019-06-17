@@ -16,7 +16,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div id="navbarCollapse" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav mr-auto">
           <router-link
             to="/"
             activeClass="active"
@@ -42,6 +42,11 @@
           >
             <a class="nav-link">Stocks</a>
           </router-link>
+        </ul>
+        <ul class="nav navbar-nav navbar-center">
+          <li class="nav-item">
+            Funds: ${{ funds }}
+          </li>
         </ul>
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
@@ -75,7 +80,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    funds: function() {
+      return this.$store.getters.getFunds;
+    }
+  }
+};
 </script>
 
 <style scoped>
