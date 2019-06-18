@@ -22,14 +22,18 @@
                 type="number"
                 class="form-control"
                 placeholder="Quantity"
-                v-model="quantity"
+                v-model.number="quantity"
               />
             </div>
             <div class="col-sm-2">
               <button
                 @click="sellStock"
                 class="btn btn-outline-light"
-                :disabled="quantity <= 0 || !Number.isInteger(Number(quantity))"
+                :disabled="
+                  !sufficientQuantity ||
+                    quantity <= 0 ||
+                    !Number.isInteger(Number(quantity))
+                "
               >
                 Sell
               </button>
@@ -55,6 +59,11 @@ export default {
       id: Number,
       name: String,
       price: Number
+    }
+  },
+  computed: {
+    sufficientQuantity: function() {
+      return this.quantity  <= this.stock.quantity;
     }
   },
   methods: {
