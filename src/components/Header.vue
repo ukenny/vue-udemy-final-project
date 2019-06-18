@@ -44,9 +44,7 @@
           </router-link>
         </ul>
         <ul class="nav navbar-nav navbar-center">
-          <li class="nav-item">
-            Funds: ${{ funds }}
-          </li>
+          <li class="nav-item">Funds: {{ funds | currency }}</li>
         </ul>
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">

@@ -9,8 +9,7 @@
       <b-col>
         <h4 class="text-center">
           You may
-          <b>Save</b> or
-          <b>Load</b> your data
+          <b>Save</b> or <b>Load</b> your data
         </h4>
       </b-col>
     </b-row>
@@ -23,7 +22,7 @@
     </b-row>
     <hr />
     <b-row>
-      <h2>Available Funds: ${{ funds }}</h2>
+      <h2>Available Funds: {{ funds | currency }}</h2>
     </b-row>
   </b-container>
 </template>

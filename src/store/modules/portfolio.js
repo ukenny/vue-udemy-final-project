@@ -1,5 +1,3 @@
-import { stat } from "fs";
-
 const state = {
   funds: 1000,
   portfolioStocks: []

@@ -3,6 +3,7 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 import BootstrapVue from "bootstrap-vue";
 import PortalVue from "portal-vue";
+import VueCurrencyFilter from "vue-currency-filter";
 
 import store from "./store/store.js";
 
@@ -22,7 +23,14 @@ const router = new VueRouter({
   mode: "history",
   routes: routes
 });
-
+Vue.use(VueCurrencyFilter, {
+  symbol: "$",
+  thousandsSeparator: ",",
+  fractionCount: 2,
+  fractionSeparator: ".",
+  symbolPosition: "front",
+  symbolSpacing: true
+});
 new Vue({
   router: router,
   render: h => h(App),

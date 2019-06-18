@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <div class="containor-fluid">
+    <div class="container-fluid">
       <div class="row">
         <router-view></router-view>
       </div>
@@ -30,7 +30,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 8%;
-  padding-top: 0em;
+  padding-top: 0%;
   outline: none;
   border: none !important;
   -webkit-box-shadow: none !important;
