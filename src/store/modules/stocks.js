@@ -11,10 +11,12 @@ const mutations = {
   RANDOMIZE_STOCK_PRICES: function(state) {
     const max = 101;
     const min = -100;
-    // TODO: Randomize stocks
     state.stocks.forEach(stock => {
-      stock.price = Math.round(
-        Math.floor(Math.random() * (max - min + 1)) + min
+      stock.price = Math.max(
+        Math.round(
+          Math.floor(Math.random() * (max - min + 1)) + min + stock.price
+        ),
+        0
       );
     });
   }

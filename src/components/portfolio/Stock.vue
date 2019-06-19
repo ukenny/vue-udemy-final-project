@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     sufficientQuantity: function() {
-      return this.quantity  <= this.stock.quantity;
+      return this.quantity <= this.stock.quantity;
     }
   },
   methods: {
